@@ -1,0 +1,167 @@
+// Variables
+:root {
+  // Color system
+  --color-primary: #0F52BA;
+  --color-primary-light: #4978D0;
+  --color-primary-dark: #093C8D;
+  
+  --color-secondary: #20B2AA;
+  --color-secondary-light: #5ECDC7;
+  --color-secondary-dark: #148E87;
+  
+  --color-accent: #FFD700;
+  --color-accent-light: #FFE44D;
+  --color-accent-dark: #CCA800;
+  
+  --color-success: #4CAF50;
+  --color-success-light: #7BC67E;
+  --color-success-dark: #3D8C40;
+  
+  --color-warning: #FFC107;
+  --color-warning-light: #FFD54F;
+  --color-warning-dark: #CC9A00;
+  
+  --color-error: #F44336;
+  --color-error-light: #F77066;
+  --color-error-dark: #C3352B;
+  
+  --color-grey-100: #F8F9FA;
+  --color-grey-200: #E9ECEF;
+  --color-grey-300: #DEE2E6;
+  --color-grey-400: #CED4DA;
+  --color-grey-500: #ADB5BD;
+  --color-grey-600: #6C757D;
+  --color-grey-700: #495057;
+  --color-grey-800: #343A40;
+  --color-grey-900: #212529;
+  
+  // Spacing system (8px grid)
+  --space-1: 0.25rem; // 4px
+  --space-2: 0.5rem;  // 8px
+  --space-3: 1rem;    // 16px
+  --space-4: 1.5rem;  // 24px
+  --space-5: 2rem;    // 32px
+  --space-6: 3rem;    // 48px
+  --space-7: 4rem;    // 64px
+  
+  // Font
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-size-xs: 0.75rem;    // 12px
+  --font-size-sm: 0.875rem;   // 14px
+  --font-size-md: 1rem;       // 16px
+  --font-size-lg: 1.125rem;   // 18px
+  --font-size-xl: 1.25rem;    // 20px
+  --font-size-2xl: 1.5rem;    // 24px
+  --font-size-3xl: 1.875rem;  // 30px
+  --font-size-4xl: 2.25rem;   // 36px
+  
+  // Border radius
+  --radius-sm: 0.25rem;  // 4px
+  --radius-md: 0.5rem;   // 8px
+  --radius-lg: 0.75rem;  // 12px
+  --radius-xl: 1rem;     // 16px
+  
+  // Shadows
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  // Animation
+  --transition-fast: 150ms;
+  --transition-normal: 250ms;
+  --transition-slow: 350ms;
+}
+
+// Reset & Base Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+  color: var(--color-grey-800);
+  background-color: var(--color-grey-100);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast) ease;
+  
+  &:hover {
+    color: var(--color-primary-dark);
+  }
+}
+
+// AG Grid Customizations
+.ag-theme-alpine {
+  --ag-header-background-color: var(--color-grey-100);
+  --ag-header-foreground-color: var(--color-grey-800);
+  --ag-header-cell-hover-background-color: var(--color-grey-200);
+  --ag-row-hover-color: var(--color-grey-200);
+  --ag-selected-row-background-color: rgba(15, 82, 186, 0.1);
+  --ag-font-family: var(--font-family-base);
+  --ag-font-size: var(--font-size-md);
+}
+
+// Animation Classes
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--transition-normal) ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform var(--transition-normal) ease;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
+// Utility classes
+.card {
+  background-color: white;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-4);
+  margin-bottom: var(--space-4);
+  transition: transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-1 { margin-bottom: var(--space-1); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-3 { margin-bottom: var(--space-3); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mt-1 { margin-top: var(--space-1); }
+.mt-2 { margin-top: var(--space-2); }
+.mt-3 { margin-top: var(--space-3); }
+.mt-4 { margin-top: var(--space-4); }
